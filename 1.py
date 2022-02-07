@@ -13,16 +13,18 @@ cities = {
 }
 
 
-def time(speed, distance):
-    for key in speed:
-        speed = speed[key]
-        print(key)
-        print('-------------')
-        for key in distance:
-            distance = distance[key]
-            print(key)
-            print(f'{round(distance/speed,2)} 時間')
-            print()
+def time(speed,distance):
+    return distance / speed
 
 
-time(animals, cities)
+def city(animal):
+    times = {}
+    for key, value in cities.items():
+        times[key] = time(animal,value)
+    return times
+
+for key,value in animals.items():
+    times = city(value)
+    print("{}: ".format(key))
+    for k, v in times.items():
+        print(f"\t{k}: {round(v,1)}h")

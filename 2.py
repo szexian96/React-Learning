@@ -1,8 +1,7 @@
 class person:
     def __init__(self, kg, m):
-        self.kg = kg
-        self.m = m
-
+        self.kg = 0
+        self.m = 0
     def myfunc(self):
         bmi_self = self.kg / (self.m * self.m)
         
