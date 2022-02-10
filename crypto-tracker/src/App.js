@@ -5,6 +5,7 @@ import Homepage from "./Pages/Homepage";
 import CoinPage from "./Pages/CoinPage";
 import { makeStyles } from "@material-ui/core";
 
+//if cannot start react, just 'npm start' becuase the data is insde package.json
 //material-ui with a makeStyles callback function and get a return value
 const useStyles = makeStyles(() => ({
   App: {

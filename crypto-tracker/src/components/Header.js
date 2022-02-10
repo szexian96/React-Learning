@@ -7,8 +7,13 @@ import {
   Typography,
   MenuItem,
   makeStyles,
+  createTheme,
+  ThemeProvider,
+  FormControl,
 } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"; //move a function from this file
+import { CryptoState } from "../CryptoContext";
+import createPalette from "@material-ui/core/styles/createPalette";
 
 //style for header
 const useStyles = makeStyles(() => ({
@@ -23,40 +28,61 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Header = () => {
-
   const classes = useStyles(); //use the style in this function classes as useStyles Function
-  const history = useHistory();https://visme.co/blog/website-color-schemes/
+
+  const history = useHistory(); //for Routing
+
+  const { currency, setCurrency } = CryptoState();
+
+  const darkTheme = createTheme({
+    //create an object
+    palette: {
+      primary: {
+        main: "#66fcf1",
+      },
+      text: {
+        primary: "#66fcf1",
+      },
+      type: "dark",
+    },
+  });
 
   return (
-    //header transparent and position static just normally put at there
-    <AppBar color="transparent" position="static">
-      {/*To make our website responsive*/}
-      <Container>
+    <ThemeProvider theme={darkTheme}>
+      {/* header transparent and position static just normally put at there */}
+      <AppBar color="transparent" position="static">
+        {/*To make our website responsive so if you dont want also can*/}
+        {/* <Container> */}
         <Toolbar>
           {/*Use className to apply style in Typography*/}
           <Typography
             /*when you click the classname it will link back to homepage*/
             onClick={() => history.push("/")}
             className={classes.title}
+            variant="h6"
           >
             CRYPTO-T
           </Typography>
-
-          <Select
-            variant="outlined"
-            style={{
-              width: 100,
-              height: 40,
-              marginLeft: 15,
-            }}
-          >
-            <MenuItem value={"USD"}>USD</MenuItem>
-            <MenuItem value={"INR"}>RM</MenuItem>
-            <MenuItem value={"JPY"}>JPY</MenuItem>
-          </Select>
+          <FormControl>
+            <Select
+              variant="outlined"
+              style={{
+                width: 100,
+                height: 40,
+                marginRight: 15,
+              }}
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value)} //fetch the target value from setCurrency
+            >
+              <MenuItem value={"USD"}>USD</MenuItem>
+              <MenuItem value={"RM"}>RM</MenuItem>
+              <MenuItem value={"JPY"}>JPY</MenuItem>
+            </Select>
+          </FormControl>
         </Toolbar>
-      </Container>
-    </AppBar>
+        {/* </Container> */}
+      </AppBar>
+    </ThemeProvider>
   );
 };
 
