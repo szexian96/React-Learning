@@ -13,7 +13,6 @@ import {
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom"; //move a function from this file
 import { CryptoState } from "../CryptoContext";
-import createPalette from "@material-ui/core/styles/createPalette";
 
 //style for header
 const useStyles = makeStyles(() => ({
