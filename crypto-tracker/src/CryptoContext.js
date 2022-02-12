@@ -6,13 +6,13 @@ import { useEffect } from "react";
 const Crypto = createContext();
 
 const CryptoContext = ({children}) => {
-  const [currency, setCurrency] = useState("USD"); //this is use state which initial value
+  const [currency, setCurrency] = useState("usd"); //this is use state which initial value
   const [symbol, setSymbol] = useState("$"); //second if USD then $
 
   useEffect(() => {
-    if (currency === "USD") setSymbol("$"); //if currecy OO, then setSymbol = $
-    else if (currency === "JPY") setSymbol("￥");
-    else if (currency === "RM") setSymbol("RM");
+    if (currency === "usd") setSymbol("$"); //if currecy OO, then setSymbol = $
+    else if (currency === "jpy") setSymbol("￥");
+    else if (currency === "myr") setSymbol("RM");
   }, [currency]); //when the variable in [] change, it will run
 
   return <Crypto.Provider value={{currency,symbol,setCurrency}}>{children}</Crypto.Provider>;

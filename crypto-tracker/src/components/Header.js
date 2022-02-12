@@ -13,7 +13,6 @@ import {
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom"; //move a function from this file
 import { CryptoState } from "../CryptoContext";
-import createPalette from "@material-ui/core/styles/createPalette";
 
 //style for header
 const useStyles = makeStyles(() => ({
@@ -52,7 +51,7 @@ const Header = () => {
       {/* header transparent and position static just normally put at there */}
       <AppBar color="transparent" position="static">
         {/*To make our website responsive so if you dont want also can*/}
-        {/* <Container> */}
+        <Container>
         <Toolbar>
           {/*Use className to apply style in Typography*/}
           <Typography
@@ -61,7 +60,7 @@ const Header = () => {
             className={classes.title}
             variant="h6"
           >
-            CRYPTO-T
+            TRACKER
           </Typography>
           <FormControl>
             <Select
@@ -74,13 +73,13 @@ const Header = () => {
               value={currency}
               onChange={(e) => setCurrency(e.target.value)} //fetch the target value from setCurrency
             >
-              <MenuItem value={"USD"}>USD</MenuItem>
-              <MenuItem value={"RM"}>RM</MenuItem>
-              <MenuItem value={"JPY"}>JPY</MenuItem>
+              <MenuItem value={"usd"}>USD</MenuItem>
+              <MenuItem value={"myr"}>RM</MenuItem>
+              <MenuItem value={"jpy"}>JPY</MenuItem>
             </Select>
           </FormControl>
         </Toolbar>
-        {/* </Container> */}
+        </Container>
       </AppBar>
     </ThemeProvider>
   );
