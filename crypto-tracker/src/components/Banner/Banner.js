@@ -9,15 +9,16 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#1f2833",
   },
   bannerContent: {
-    height: "55vh",
+    height: 400,
     display: "flex",
     flexDirection: "column", // 從上到下
+    justifyContent:"center",
     paddingTo: 25,
     justifyContent: "space-around", //space around between element
   },
   tagline: {
     display: "flex",
-    height: "40%",
+    // height: "40%",
     flexDirection: "column",
     justifyContent: "center",
     textAlign: "center",
