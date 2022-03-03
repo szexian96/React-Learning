@@ -326,17 +326,78 @@
   - array : show all content inside array
 
 - append an new item
+
   > ```
   > a.push(item);
   > ```
 
 - method of array
-> ```
-> 1. a.toString()
-> 2. a.toLocaleString()
-> 3. a.concat(item1[....,item2])
-> 4. a.join(sep)
-> 5. a.pop
-> 6. a.push
+  > ```
+  > 1. a.toString() : return a string
+  > 2. a.toLocaleString() : return a string
+  > 3. a.concat(item1[....,item2]) : return a new array with item
+  > 4. a.join(sep) : convert array to string and delimited with param seperator
+  > 5. a.pop : remove last item
+  > 6. a.push(item1,...,itemN) : append item to end of array
+  > 7. a.shift : remove 1st item
+  > 8. a.unshift(item1,....,itemN) : append item to 1st of array
+  > 9. a.slice(start[,end]) : return a sub array
+  > 10. a.sort([cmpfn]) : takes an optional comparison function and sort
+  > 11. a.splice : modify certian part and put new items
+  > 12. a.reverse : reverse the array
+  > ```
 
-```
+## Functions
+
+> ```
+> function add (x,y){
+>   const total = x + y;
+>   return total;
+> }
+>
+> add() #Show undefined
+> add(1,2) #3
+> ```
+
+- function have access to an **additional variable** inside their body called `[arguments]`
+- a function **take as many as you want**
+
+  > ```
+  > #Example
+  > function add(){
+  >   let sum = 0;
+  >   for (const item of arguments){ #for of loop
+  >     sum += item;
+  >   }
+  >   return sum;
+  > }
+  > a
+  > add(2,3,4,5,6) #take as many variables as I want
+  > ```
+
+- Rest parameter Syntax
+- `...variable` and it will include within that **variable** the **entire list** of uncaptured **arguments**.
+
+  > ```
+  > function avg(...args){
+  >   let sum = 0;
+  >   for (const item of args){
+  >     sum += item;
+  >   }
+  >   return sum/args.length;
+  >
+  > avg(2,3,4,5); #3.5
+  > }
+  > ```
+
+- Find the average of an array.
+
+  > ```
+  > avg ([2,3,4,5]) # => 3.5
+  > ```
+
+- apply() method of any function object
+
+  > `avg.apply(null,[2,3,4,5])`
+
+- is a **well prepared syntax** for javascript.
