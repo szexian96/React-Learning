@@ -58,22 +58,22 @@ const Carousel = () => {
           alt={coin.name}
           height="80"
           style={{
-            marginTop: 50,
+            marginTop: 25,
             marginBottom: 10,
           }}
         />
-        <span style={{fontSize: 20, letterSpacing: 2}}>
+        <span style={{fontSize: 12, letterSpacing: 2}}>
           {coin?.symbol}
           &nbsp;
           <span 
             style={{
               color: profit > 0? "rgb(14,203,129)" : "red", //css if statement
-              fontWeight:500, letterSpacing : 2,fontSize: 20
+              fontWeight:500, letterSpacing : 2,fontSize: 12
             }}>
             {profit && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
           </span>
         </span>
-        <span style={{ fontSize: 22, fontWeight: 500, letterSpacing: 2, lineHeight: 2 }}>
+        <span style={{ fontSize: 20, fontWeight: 500, letterSpacing: 2, lineHeight: 2 }}>
           {symbol} {numberWithCommas(coin?.current_price.toFixed(2))}
         </span>
       </Link> /*link the carousel item to a specific link*/
