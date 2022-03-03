@@ -284,9 +284,7 @@
   > a[2] = 'hen';
   > a.length # show length = 3
   > ```
-  >
-  > **OR**
-  >
+  **OR**
   > ```
   > var a = ['dog','cat','hen']
   > a[100] = 'fox';
@@ -304,9 +302,7 @@
   > ```
   > for (var i = 0; i < a.length; i++) #It will loop all the array
   > ```
-
   **OR**
-
   > ```
   > for (const currentValue of a) # Put in 1 by 1
   > ```
@@ -398,6 +394,51 @@
 
 - apply() method of any function object
 
-  > `avg.apply(null,[2,3,4,5])`
+  > ```
+  > avg.apply(null,[2,3,4,5]); #3.5
+  > ```
 
 - is a **well prepared syntax** for javascript.
+
+- Anonymous Functions **(Arrow Function)**
+  > ```
+  > const avg = function(){};
+  > ```
+
+- Recursive Functions
+  - allow you to call function recursively.
+
+## Custom Object
+1. Before
+    > ```
+    > function makePerson (first,last){
+    >   return{
+    >     first: first,
+    >     last: last,
+    >     fullName: function(){
+    >       return this.first + '' + this.last;
+    >     };
+    >   };
+    > };
+    >
+    > const s = makePerson('Simon','Lim')
+    > s.fullName #Simon Lim
+    > ```
+
+- use `this.〇〇` to improve function readability.
+- above will keep create **2 new objects(first,last)**.
+
+2. After **(Final)**
+
+    > ```
+    > function Person(first,last){
+    >   this.first = first;
+    >   this.last = last;
+    > }
+    > 
+    > Person.prototype.fullName = function(){
+    >   return this.first + " " + this.last;  
+    > };
+    > ```
+
+- `Person.prototype` is an object shared by all instance of person can add extra methods to existing objects.
