@@ -55,7 +55,7 @@ const Banner = () => {
               letterSpacing: 2,
             }}
           >
-            fook lan see here you can get your crypro price here
+            Check your crypro price here
           </Typography>
           <Carousel/>
         </div>
