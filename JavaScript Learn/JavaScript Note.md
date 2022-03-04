@@ -639,7 +639,7 @@ React.js
 > boundFunc(); #Output = 3
 > ```
 
-- `this` set to `foo` 不是 `bind` 進去隨時`function` 合成為新的 `function`.
+- `this` set to `foo` 不是 `bind` 進去,而是合成為新的 `function`.
 - refer to a `method` without ( )`onClick = this.handleClick`
 - 看前面的`constructor`部分
 
@@ -647,19 +647,50 @@ React.js
 
 1. `handleClick( )`
 
-    > ```
-    > handleClick = () => {
-    >   console.log('this is',this) # 寫在method裡面的function
-    > }
-    > ```
+   > ```
+   > handleClick = () => {
+   >   console.log('this is',this) # 寫在method裡面的function
+   > }
+   > ```
 
 2. `render()`
 
+   > ```
+   > render(){
+   >   return(
+   >     <button onClick= { () => this.handleClick() })>
+   >       Click Me!
+   >     </button>
+   > }
+   > ```
+
+- Passing Arguments to Event Handler
+  - common to pass an extra parameter to an event handler.
     > ```
-    > render(){
-    >   return(
-    >     <button onClick= { () => this.handleClick() })>
-    >       Click Me!
-    >     </button>    
-    > }
+    > <button onClick={(e) => this.deleteRow(id,e)}>Delete Row</button>
     > ```
+  - `e` will be pass to `this.deleteRow` and it will give command to `id`.
+
+## Optional Chainning(?.) used in API
+
+- Enables you to read the value of a property located deep within a chain of connected object without having to check.
+- If don't have, it will return `undefined`.
+
+> ```
+> # Example 1
+> const adam {
+>   name:'Alice',
+>   cat:{
+>     name:'Dinah',
+>   }
+> };
+> 
+> const dogName = adam.cat?.name 
+> console.log(dogName); #Dinah
+> ```
+
+- In Example2, check if coin is undefined or not, to avoid any render error
+> ```
+> # Example 2 : fetching coin
+> {coin?.name} => coin&&coin.name #checking purpose
+> ```
