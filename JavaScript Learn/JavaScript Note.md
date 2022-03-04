@@ -447,30 +447,175 @@
    > };
    > ```
 
-- `Person.prototype` is an object shared by all instance of person can add extra methods to existing objects.就是可以一直換而不是做新的object出來。
+- `Person.prototype` is an object shared by all instance of person can add extra methods to existing objects.就是可以一直換而不是做新的 object 出來。
 
 - Example:
+
   > ```
   > p1
   > > x
   > > y
   > > prototype
-  > 
+  >
   > p2
   > > x
   > > y
   > > prototype
-  > 
+  >
   > Particle.prototype (p1 and p2 prototype will direct to this)
   > > show()
   > > _proto_
   > > > Object.prototype
   > > > > hasOwnProperty()
-  > 
+  >
   > p.hasOwnProperty('x'); #True : belong to p1 and p2
   > p.hasOwnProperty('show'); #False : belong to Prototype
   > ```
 
-- 簡單來講就是一個function() for 動作
+- 簡單來講就是一個 function() for 動作
 
 ## Closure
+
+- Closure is like ==function use in React==.
+- It is call as ==Data Encapsulation==.
+- More memory, More computation.
+- Heap Memory = Long Lived
+- It act as an API (Function Factories)
+
+  > ```
+  > #Example1
+  > for (var i = 0; i < 3; i++){
+  >
+  > →var will show in global
+  > -----------closure--------------
+  >   const log = () => {
+  >     console.log(i);
+  >   }
+  > ----close over the variable-----
+  >
+  >   setTimeout(log,100)
+  > }
+  > ```
+
+   <table>
+   <th></th><th>Call Stack (No Closure)</th><th>Heap Memory (Closure)</th>
+   <tr><td><strong>Type</strong></td><td>let</td><td>var</td></tr>
+  <tr><td><strong>Result</strong></td><td>show 1,2,3</td><td>show 3,3,3</td></tr>
+   <tr><td><strong>Reason</strong></td><td>let is a block scope so will show in 0,1,2</td><td>var is a global scope so will show 3,3,3 which is the result</td></tr>
+   </table>
+
+- Lexical Environment
+  - Context when function was defined ==(做 function 的地方)==
+
+> ```
+> #Another Example for Closure like api a.k.a Self Contained
+>
+> function outer() {
+>   let state = "rabbit"
+>  a
+>   function inner() {
+>     return `Hello ${state}`;
+>   }
+>   return inner;
+> }
+> ```
+
+- above code show that inner can access state ":rabbit:" but the outer part cannot access to inner, so at the last part of `return inner` will fail.
+
+## Array Map
+
+- Array.prototype.map()
+
+  - Create a ==new Array[ ]==, by calling a ==function== on each element in a ==different Array[ ]==.
+    > ```
+    > #Concept
+    > ['a','b','c'].map(fun)
+    >   return a,b,c
+    > ```
+
+- Before (imperative programming: use statement to mutate state)
+
+> ```
+> #object
+> const users = [
+>   {name : 'A'},
+>   {name : 'B'},
+>   {name : 'C'},
+> ];
+>
+> const usernames =[ ];
+> for (const user of users){
+>   usernames.push(user.name)
+> }
+>
+> Output : usernames['A','B','C']
+> ```
+
+- After (declarative: use functions to describe state)
+
+> ```
+> #object
+> const users = [
+>   {name : 'A'},
+>   {name : 'B'},
+>   {name : 'C'},
+> ];
+>
+> const usernames = users.map(user => user.name);
+> usernames ['A','B','C']
+> ```
+
+React.js
+
+> ```
+> const ui = users.map(user =>
+>   <h1>
+>     {user.username}
+>   </h1>
+> )
+> ```
+
+- if you want planning for a ==new array then use map==.
+- if not, ==loop==.
+
+- Step
+
+1. install node.js (newest version)
+2. npx create-react [title]
+
+   - Create React App will not settle about backend logic.
+   - Build a frontend pipeline.
+
+3. Delete file inside `/src : rm -f *`
+4. Create React File `index.js` `index.css`
+   > ```
+   > Import React from 'react';
+   > Import ReactDom from 'react-dom';
+   > Import 'cssfile';
+   > ```
+5. npm start
+
+- a declarative, efficient & flexible JS library for building UI.
+
+  <table><th><strong><p style="text-align: center;">UI</style></strong></th>
+  <tr><td>Components</td></tr><tr><td>Components</td></tr><tr><td>Components</td></tr>
+  </table>
+
+- React.Component subclasses
+
+> ```
+> class ShoppingList extends React.Component {
+>   render(){
+>     return {}
+>       <div className="shopping-list">
+>         <h1>Shopping list for {this.props.name}</h1>
+>         <ul>
+>           <li>Instagram</li>
+>           <li>WhatsApp</li>
+>           <li>Oculus</li>
+>         </ul>
+>       </div>
+>      };
+>   }
+> }
+> ```
