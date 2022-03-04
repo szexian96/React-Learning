@@ -40,10 +40,10 @@
   > ①　3/2 = 1.5
   > ②　Math.floor(3/2) = 1
   > ```
-- Apparent Integer : **float**
-- Math : **Build in Object**
+- Apparent Integer : ==float==
+- Math : ==Build in Object==
   - Provide Advanced Math Function
-- parseInt() : **String => Integer**
+- parseInt() : ==String => Integer==
 
   > ```
   > parseInt('123',10)
@@ -77,10 +77,10 @@
 
 ## Variables
 
-- let : declare **block level** variables
-- const : value **never intended** to change
-- var : does not have **restriction**
-- undefined : declare variable **without value**
+- let : declare ==block level== variables
+- const : value ==never intended== to change
+- var : does not have ==restriction==
+- undefined : declare variable ==without value==
 
 ## Operators
 
@@ -176,7 +176,7 @@
   > ```
 
 - **&& and || Operator**
-- useful for **checking null objects** before accessing their attributes.
+- useful for ==checking null objects== before accessing their attributes.
 
   > ```
   > var name = 0 && 0.getName()
@@ -188,7 +188,7 @@
   > var name = cachedName || (cachedName = getName());
   > ```
 
-- **ternary operator** for conditional expression.
+- ==ternary operator== for conditional expression.
 
   > ```
   > var allowed = (age > 18)? 'yes' : 'no' ;
@@ -210,16 +210,16 @@
   > ```
 
 - **Object**
-- simple collections of **name-variable pairs**
+- simple collections of ==name-variable pairs==
 
-  1. Create an **empty Object**.
+  1. Create an ==empty Object==.
 
      > ```
      > var obj = new Object();
      > var obj = {};
      > ```
 
-  2. Object Literal Syntax care of **JSON format**.
+  2. Object Literal Syntax care of ==JSON format==.
 
      > ```
      > var obj = {
@@ -232,14 +232,14 @@
      > };
      > ```
 
-  3. Attributes access can be **chained**.
+  3. Attributes access can be ==chained==.
 
      > ```
      > obj.details.color => Orange
      > obj['details']['size'] => 12
      > ```
 
-  4. Create an **object Prototype** (Person) & **Instance** of that prototype (You)
+  4. Create an ==object Prototype==(Person) & ==Instance== of that prototype (You)
 
      > ```
      > # Object
@@ -251,7 +251,7 @@
      > var you = new Person ("You",24)
      > ```
 
-  5. An object can be **accessed again**.
+  5. An object can be ==accessed again==.
 
      > ```
      > #Example 1
@@ -263,7 +263,7 @@
      > var name = obj['name'];
      > ```
 
-- can use a **variable to define** a key
+- can use a ==variable to define== a key
 
   > ```
   > # Store key inside var user
@@ -284,25 +284,29 @@
   > a[2] = 'hen';
   > a.length # show length = 3
   > ```
-  **OR**
+  >
+  > **OR**
+  >
   > ```
   > var a = ['dog','cat','hen']
   > a[100] = 'fox';
   > a.length; # show length = 101
   > ```
 
-- **query non-existent** array index
+- ==query non-existent== array index
 
   > ```
   > typeof a[90] #undefined
   > ```
 
-- **iterate over an array** using `for` loop
+- ==iterate over an array== using `for` loop
 
   > ```
   > for (var i = 0; i < a.length; i++) #It will loop all the array
   > ```
-  **OR**
+  >
+  > **OR**
+  >
   > ```
   > for (const currentValue of a) # Put in 1 by 1
   > ```
@@ -355,8 +359,8 @@
 > add(1,2) #3
 > ```
 
-- function have access to an **additional variable** inside their body called `[arguments]`
-- a function **take as many as you want**
+- function have access to an ==additional variable== inside their body called `[arguments]`
+- a function ==take as many as you want==
 
   > ```
   > #Example
@@ -372,7 +376,7 @@
   > ```
 
 - Rest parameter Syntax
-- `...variable` and it will include within that **variable** the **entire list** of uncaptured **arguments**.
+- `...variable` and it will include within that ==variable the entire list\*\* of uncaptured arguments==.
 
   > ```
   > function avg(...args){
@@ -398,9 +402,10 @@
   > avg.apply(null,[2,3,4,5]); #3.5
   > ```
 
-- is a **well prepared syntax** for javascript.
+- is a ==well prepared syntax== for javascript.
 
 - Anonymous Functions **(Arrow Function)**
+
   > ```
   > const avg = function(){};
   > ```
@@ -409,36 +414,63 @@
   - allow you to call function recursively.
 
 ## Custom Object
+
 1. Before
-    > ```
-    > function makePerson (first,last){
-    >   return{
-    >     first: first,
-    >     last: last,
-    >     fullName: function(){
-    >       return this.first + '' + this.last;
-    >     };
-    >   };
-    > };
-    >
-    > const s = makePerson('Simon','Lim')
-    > s.fullName #Simon Lim
-    > ```
+   > ```
+   > function makePerson (first,last){
+   >   return{
+   >     first: first,
+   >     last: last,
+   >     fullName: function(){
+   >       return this.first + '' + this.last;
+   >     };
+   >   };
+   > };
+   >
+   > const s = makePerson('Simon','Lim')
+   > s.fullName #Simon Lim
+   > ```
 
 - use `this.〇〇` to improve function readability.
-- above will keep create **2 new objects(first,last)**.
+- above will keep create ==2 new objects(first,last)==.
 
-2. After **(Final)**
+2. After **(Final)** : Prototype
 
-    > ```
-    > function Person(first,last){
-    >   this.first = first;
-    >   this.last = last;
-    > }
-    > 
-    > Person.prototype.fullName = function(){
-    >   return this.first + " " + this.last;  
-    > };
-    > ```
+   > ```
+   > function Person(first,last){
+   >   this.first = first;
+   >   this.last = last;
+   > }
+   >
+   > Person.prototype.fullName = function(){
+   >   return this.first + " " + this.last;
+   > };
+   > ```
 
-- `Person.prototype` is an object shared by all instance of person can add extra methods to existing objects.
+- `Person.prototype` is an object shared by all instance of person can add extra methods to existing objects.就是可以一直換而不是做新的object出來。
+
+- Example:
+  > ```
+  > p1
+  > > x
+  > > y
+  > > prototype
+  > 
+  > p2
+  > > x
+  > > y
+  > > prototype
+  > 
+  > Particle.prototype (p1 and p2 prototype will direct to this)
+  > > show()
+  > > _proto_
+  > > > Object.prototype
+  > > > > hasOwnProperty()
+  > 
+  > p.hasOwnProperty('x'); #True : belong to p1 and p2
+  > p.hasOwnProperty('show'); #False : belong to Prototype
+  > ```
+
+- 簡單來講就是一個function() for 動作
+
+## Closure
