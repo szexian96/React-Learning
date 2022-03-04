@@ -619,3 +619,47 @@ React.js
 >   }
 > }
 > ```
+
+## JavaScript `bind()`
+
+- To set the value of a function `this` regardless of how it called.
+- reference of an object
+
+> ```
+> var foo = {
+>   x = 3
+> }
+>
+> var bar = function() {
+>   console.log(this.x);
+> }
+>
+> bar(); #undefined
+> var boundFunc = bar.bind(foo);
+> boundFunc(); #Output = 3
+> ```
+
+- `this` set to `foo` 不是 `bind` 進去隨時`function` 合成為新的 `function`.
+- refer to a `method` without ( )`onClick = this.handleClick`
+- 看前面的`constructor`部分
+
+- Way other then bind(), 2 ways
+
+1. `handleClick( )`
+
+    > ```
+    > handleClick = () => {
+    >   console.log('this is',this) # 寫在method裡面的function
+    > }
+    > ```
+
+2. `render()`
+
+    > ```
+    > render(){
+    >   return(
+    >     <button onClick= { () => this.handleClick() })>
+    >       Click Me!
+    >     </button>    
+    > }
+    > ```
