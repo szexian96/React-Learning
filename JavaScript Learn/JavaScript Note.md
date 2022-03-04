@@ -603,41 +603,41 @@ React.js
 
 - React.Component subclasses
 
-> ```
-> class ShoppingList extends React.Component {
->   render(){
->     return {}
->       <div className="shopping-list">
->         <h1>Shopping list for {this.props.name}</h1>
->         <ul>
->           <li>Instagram</li>
->           <li>WhatsApp</li>
->           <li>Oculus</li>
->         </ul>
->       </div>
->      };
->   }
-> }
-> ```
+  > ```
+  > class ShoppingList extends React.Component {
+  >   render(){
+  >     return {}
+  >       <div className="shopping-list">
+  >         <h1>Shopping list for {this.props.name}</h1>
+  >         <ul>
+  >           <li>Instagram</li>
+  >           <li>WhatsApp</li>
+  >           <li>Oculus</li>
+  >         </ul>
+  >       </div>
+  >      };
+  >   }
+  > }
+  > ```
 
 ## JavaScript `bind()`
 
 - To set the value of a function `this` regardless of how it called.
 - reference of an object
 
-> ```
-> var foo = {
->   x = 3
-> }
->
-> var bar = function() {
->   console.log(this.x);
-> }
->
-> bar(); #undefined
-> var boundFunc = bar.bind(foo);
-> boundFunc(); #Output = 3
-> ```
+  > ```
+  > var foo = {
+  >   x = 3
+  > }
+  >
+  > var bar = function() {
+  >   console.log(this.x);
+  > }
+  >
+  > bar(); #undefined
+  > var boundFunc = bar.bind(foo);
+  > boundFunc(); #Output = 3
+  > ```
 
 - `this` set to `foo` 不是 `bind` 進去,而是合成為新的 `function`.
 - refer to a `method` without ( )`onClick = this.handleClick`
@@ -671,26 +671,26 @@ React.js
     > ```
   - `e` will be pass to `this.deleteRow` and it will give command to `id`.
 
-## Optional Chainning(?.) used in API
+## Optional Chaining(?.) used in API
 
 - Enables you to read the value of a property located deep within a chain of connected object without having to check.
 - If don't have, it will return `undefined`.
 
-> ```
-> # Example 1
-> const adam {
->   name:'Alice',
->   cat:{
->     name:'Dinah',
->   }
-> };
-> 
-> const dogName = adam.cat?.name 
-> console.log(dogName); #Dinah
-> ```
+  > ```
+  > # Example 1
+  > const adam {
+  >   name:'Alice',
+  >   cat:{
+  >     name:'Dinah',
+  >   }
+  > };
+  >
+  > const dogName = adam.cat?.name
+  > console.log(dogName); #Dinah
+  > ```
 
-- In Example2, check if coin is undefined or not, to avoid any render error
-> ```
-> # Example 2 : fetching coin
-> {coin?.name} => coin&&coin.name #checking purpose
-> ```
+- Example 2 is an example of API, check if coin is undefined or not, to avoid any render error
+  > ```
+  > # Example 2 : fetching coin
+  > {coin?.name} => coin&&coin.name #checking purpose
+  > ```
