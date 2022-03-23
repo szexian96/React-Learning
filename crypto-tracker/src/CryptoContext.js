@@ -1,6 +1,6 @@
 import React, {  createContext, useContext, useState } from "react";
 import { useEffect } from "react";
-//for React app to effectively produce global varaibles that can be passed around.
+//for React app to effectively produce global variables that can be passed around.
 //context provide a way to share values like these between components
 //a context is a a state that use for all the project
 const Crypto = createContext();
