@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#1f2833",
   },
   bannerContent: {
-    height: 400,
+    height: 480,
     display: "flex",
     flexDirection: "column", // 從上到下
     justifyContent:"center",
@@ -18,11 +18,12 @@ const useStyles = makeStyles(() => ({
   },
   tagline: {
     display: "flex",
-    // height: "40%",
+     height: "40%",
     flexDirection: "column",
     justifyContent: "center",
     textAlign: "center",
   },
+
 }));
 
 const Banner = () => {
@@ -56,7 +57,7 @@ const Banner = () => {
               letterSpacing: 2,
             }}
           >
-            Check your crypro price here
+            Check your crypto price here
           </Typography>
           <Carousel/>
         </div>
