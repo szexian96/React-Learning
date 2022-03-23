@@ -109,13 +109,14 @@ const CoinsTable = () => {
           ) : (
             <Table>
               <TableHead style={{ backgroundColor: "#66fcf1" }}>
-                <TableRow style={{ fontSize:20}}>
+                <TableRow >
                   {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                     <TableCell
                       style={{
                         color: "black",
                         fontWeight: "700",
                         fontFamily: "Roboto",
+                        fontSize: 20
                       }}
                       key={head} //provide key to the map
                       align={head === "Coin" ? "" : "right"} //will provide more space for the head
