@@ -8,6 +8,7 @@ const Crypto = createContext();
 const CryptoContext = ({children}) => {
   const [currency, setCurrency] = useState("usd"); //this is use state which initial value
   const [symbol, setSymbol] = useState("$"); //second if USD then $
+  const [user, setUser] = useState(null); // for user
 
   useEffect(() => {
     if (currency === "usd") setSymbol("$"); //if currecy OO, then setSymbol = $
