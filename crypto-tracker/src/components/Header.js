@@ -13,6 +13,8 @@ import {
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom"; //move a function from this file
 import { CryptoState } from "../CryptoContext";
+import AuthModal from "./Authentication/AuthModal";
+
 
 //style for header
 const useStyles = makeStyles(() => ({
@@ -65,18 +67,18 @@ const Header = () => {
           <FormControl>
             <Select
               variant="outlined"
-              style={{
-                width: 100,
-                height: 40,
-                marginRight: 15,
-              }}
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
               value={currency}
+              style={{ width: 85, height: 40 }}
               onChange={(e) => setCurrency(e.target.value)} //fetch the target value from setCurrency
             >
               <MenuItem value={"usd"}>USD</MenuItem>
               <MenuItem value={"myr"}>RM</MenuItem>
               <MenuItem value={"jpy"}>JPY</MenuItem>
             </Select>
+
+
           </FormControl>
         </Toolbar>
         </Container>
