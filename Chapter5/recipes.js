@@ -38,8 +38,7 @@ const data = [
     }
 ]
 
-function Recipe (name, ingredients, steps) {
-    return (
+const Recipe = ({name, ingredients, steps}) => 
         <section id={name.toLowerCase().replace(/ /g, "-")}>
             <h1>{name}</h1>
             <ul className="ingredients">
@@ -54,25 +53,20 @@ function Recipe (name, ingredients, steps) {
                 )}
             </section>
         </section>
-    )
 
-}
-
-function Menu ( { title, recipes}){
-    return (
+const Menu  = ({ title, recipes}) =>
         <article>
             <header>
                 <h1>{title}</h1>
             </header>
             <div className="recipes">
-            {recipes.map((recipe,i) =>(
-                <Recipe key={i} {...recipe}
-            ))}</div>
+            {recipes.map((recipe,i) =>
+                <Recipe key={i} {...recipe} />
+            )}</div>
         </article>
-    );
-}
 
-ReactDOM.render(
-    <Menu recipes={data} title="Delicious Recipe" />,
-    document.getElementById("root")
+render(
+    <Menu recipes={data}
+          title="Delicious Recipes" />,
+    document.getElementById("react-container")
 )
